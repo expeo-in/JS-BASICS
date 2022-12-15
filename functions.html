@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function multiply(a, b) {
+            return a * b;
+        }
+        //const multiply = new Function("a", "b", "return a * b");
+        
+        
+        // console.log(multiply(4, 3));
+        // console.log(multiply.name);
+        // console.log(multiply.constructor);
+        // console.log(multiply.toString());
+        
+
+
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+            this.work = function() {
+                console.log("work");
+            };
+            this.display = function() {
+                console.log(this.age, this.name);
+            }
+        }
+
+        // const Person = new Function("name", "age", ` this.name = name;
+        //     this.age = age;
+        //     this.work = function() {
+        //         console.log("work");
+        //     };
+        //     this.display = function() {
+        //         console.log(this.age, this.name);
+        //     }`)
+
+        //  const person1 = new Person("ganesh", 30);
+        //  console.log(person1);
+        //  const person2 = new Person("siva", 50);
+        //  console.log(person2);
+
+        // this refers to window
+        //console.log(this);
+        
+        const circle = {
+            radius: 1,
+            draw: function() {
+                console.log(this);
+            }
+        }
+        //circle.draw();
+
+
+        const cat = {
+            name: "cat1",
+            noise: "meow",
+            // speak: function() {
+            //     console.log(this.name, this.noise);
+            // }
+        }
+        //cat.speak();
+
+        const dog = {
+            name: "dog1",
+            noise: "woof",
+            // speak: function() {
+            //     console.log(this.name, this.noise);
+            // }
+        }
+        //dog.speak();
+
+        function speak(color, price) {
+            //console.log(this);
+            console.log(this.name, this.noise, color, price);
+        }
+
+        
+        // Call method
+        speak.call(cat, "brown", 100);
+        // speak.call(dog);
+
+        //Apply
+        speak.apply(cat, ["white", 200]);
+
+        //Bind method
+        const speakWithThis = speak.bind(cat, "black", 500);
+        speakWithThis();
+
+        </script>
+</body>
+</html>

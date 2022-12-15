@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Operators</h1>
+    <script>
+
+        let x = 5;
+        let y = 3;
+        //Arithmetic operators +, -, *, /, % (division remainder or modulus)
+        // console.log(x + y); //+ - operator, x, y - operands
+        // console.log(x - y);
+        // console.log(x * y);
+        // console.log(x / y);
+        // console.log(x % y);
+        // console.log(x ** y);
+
+        //Increment Operators (++) - increment by 1 
+        //PreIncrement/prefix ++x;
+        //PostIncrement/posfix x++;
+        let z = ++x;
+        //console.log(z);
+        //console.log(x);
+
+        // console.log(y++);
+        // console.log(y);
+
+        //Decrement Operator (--) decrement by 1
+        //console.log(y--);
+
+        //Assignment Operators
+        //=, +=, -=, *=, /=, **=, %%=
+        let name = "ganesh";
+        let a = 5;
+        a += 1; //a = a + 1 or ++a
+        a += 3;
+        
+
+        //Comparison Operators 
+        //Relation Operators >, >=, <, <=
+        //console.log(x);
+        //console.log(x <= y);
+
+        //Equality Operators
+        // Strict ===, !== checks for value a type
+        //console.log("x:", x);
+        //console.log("y:", y);
+        //console.log(x !== y);
+
+        // Loose ==, != checks only for value
+        //console.log(1 == true);
+        
+        //ternary operator
+        // let marks = 95;
+        // let grade = marks > 90 ? "A": "B";
+        // console.log(grade);
+
+        // let firstname = null;
+        // console.log(typeof firstname);
+
+        //logical operators
+        // and (&&), or (||), not (!)
+       let isWrittenCleared = false;
+       let isTechnicalCleared = true;
+       let isCandiatePassed = isWrittenCleared && isTechnicalCleared;
+       let isApplicationRejected = !isCandiatePassed;
+       //console.log(isApplicationRejected);
+
+        //console.log(false || null);
+        //console.log(false && 1);
+
+        //falsey - undefined, null, 0, "", NaN (not a value)
+        //truthy - 1, "ganesh"
+
+        //short-circuiting
+        //&& - if any operand is false it will skip others
+        //|| - if any operand is true it will skip others
+
+        //console.log((1 + 2) * 3);
+        //operator precedence
+
+        
+        // console.log(evaluate(1) || evaluate(2) || evaluate(3));
+
+        // function evaluate(num) {
+        //     console.log(num);
+        //     return false;
+        // }
+
+        // console.log(true && true);
+        // console.log(true && false);
+        // console.log(true && 'Ganesh');
+        // console.log(true && 1);
+        // console.log(true && null);
+        // console.log(true && undefined);
+        // console.log(true && "");
+
+        // console.log(true && true);
+        // console.log(false && true);
+        // console.log('Ganesh' && true);
+        // console.log(1 && true);
+        // console.log(null && true);
+        // console.log(undefined && true);
+        // console.log("" && true);
+
+        // console.log('Ganesh' || true); //Ganesh
+        // console.log(1 || true); //1
+        console.log(null || false);
+        console.log(undefined || false);
+        console.log(undefined || "" || null);
+        console.log(1 || "ganesh" || null);
+        console.log(undefined || 1 || "ganesh");
+
+
+        // console.log(false || true);
+        // console.log(false || false);
+        // console.log(false || 'Ganesh');
+        // console.log(false || 1);
+        // console.log(false || null);
+        // console.log(false || undefined);
+        // console.log(false || "");
+    </script>
+</body>
+</html>

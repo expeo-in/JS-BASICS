@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Control Flow</h1>        
+    <script>
+        let marks = 85;
+        /*
+        if(marks > 90 && marks <= 100)
+            console.log("grade is A");
+        else if(marks > 80 && marks <= 90)
+            console.log("grade is B");
+        else 
+            console.log("grade is C");
+        */
+
+        /*
+            if(condition)
+                dosomething
+
+            if(condition)    
+                dosome
+            else
+                someother
+
+            if(condition)    
+                dosome
+            else if()
+                someother
+            else if()
+
+        */
+
+        let username = "";
+        /*
+        if(username != "" && username != null && username != undefined && username != 0 && username != false && username != NaN) {
+            console.log("valid value");
+        }
+        else
+            console.log("invalid value");
+        */
+        // if(undefined || 1 || "ganesh") {
+        //     console.log("valid value");
+        //     //some other action
+        // }
+        // else
+        //     console.log("invalid value");
+
+        //switch case
+        // let cardType = "gold";
+        // switch(cardType) {
+        //     case "silver":
+        //         console.log("silver card");
+        //         console.log("discount is 2%");
+        //         break;
+        //     case "gold":
+        //         console.log("discount is 5%");
+        //         break;
+        //     case "platinum":
+        //         console.log("discount is 10%");
+        //         break;
+        //     default: 
+        //         console.log("discount is 1%");
+        // }
+
+        // if(cardType === "silver")
+        //     console.log("discount is 2%");
+        // else if(cardType === "gold")
+        //     console.log("discount is 5%");
+        // else if(cardType === "platinum")
+        //     console.log("discount is 10%");
+        // else
+        //     console.log("discount is 1%");
+
+        // let x = 0;
+        //let y = ++x; //y=1, x=1
+        // let y = x++; //y=0, x=1
+
+        // for(let i=10; i>=0; i-=2) {
+        //     console.log(i);
+        // }
+
+        // for(let i=0; i<10; i++) {
+        //     if(i === 5)
+        //         continue;
+        //     console.log(i);
+        // }
+
+        // let i = 0;
+        // while(i < 10) {
+        //     if(i === 5) {
+        //         i++;
+        //         continue;
+        //     }
+                
+        //     console.log(i);
+        //     i++;
+        // }
+
+        // let input = window.prompt("Enter any number - enter 0 to exit");
+        // while(input > 0) {
+        //     console.log(input * input);
+        //     input = window.prompt("Enter number");
+        // }
+
+        // let input;
+        // do {
+        //     input  = window.prompt("Enter number");
+        //     console.log(input * input);
+        // } while(input > 0)
+
+        let person = {
+            name: "Ganesh",
+            age: 20,
+            country: "india"
+        };
+
+        //for-in - used to iterate the properties of object
+        // for(let key in person) {
+        //     console.log(key, person[key]);
+        // }
+
+        //for-of - used to iterate the items of array
+        let countries = ["India", "Pak", "SL", "China"];
+        // for(let item of countries) {
+        //     console.log(item);
+        // }
+        
+        // for(let item in countries) {
+        //     console.log(item);
+        // }
+
+        // for(let i=0; i<countries.length; i++) {
+        //     console.log(countries[i]);
+        // }
+
+        // write a function to returns max of two numbers input: two number, output: max number 
+        // write a function isLandscape which two parameter width, height.  if width > height then it is landascape, input: width, height, output: true of false;
+        
+        // fizzbuzz algorithm
+        // write a function called fizzbuzz which takes 1 input and return an output
+        // input divisible by 3 - Fizz
+        // input divisible by 5 - Buzz
+        // input divisible by 3 and 5 - FizzBuzz
+        // input Not divisible 3 or 5 - input
+        // input Not a number - 'Not a number';
+
+
+    </script>
+</body>
+</html>

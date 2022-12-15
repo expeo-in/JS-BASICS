@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Reference Types</h1>
+    <ul>
+        <li>Objects</li>
+        <li>Arrays</li>
+        <li>Functions</li>
+    </ul>
+    <script>
+        //Objects
+        let name = "ganesh";
+        let age = 30;
+        let address = "india";
+        let graduated = true;
+
+        let person = {
+            name: "ganesh",
+            age: 30,
+            address: "india"
+        };
+        //console.log(person);
+
+        //Dot Notation
+        //console.log(person.name); //read/get property
+        person.name = "ganesh kumar"; //set property
+        console.log(person.name);
+
+        //Bracket Notation
+        console.log(person["name"]);
+        person["name"] = "ganesh";
+        console.log(person["name"]);
+
+        let selectedProperty = "name";
+        //person["name"]  person[selectedProperty]
+        console.log(person[selectedProperty]);
+
+
+        let card = {
+            color: "white",
+            brand: "benz"
+        };
+
+        //Arrays - list of items 
+        let countries = ["India", "US", "Pakistan"]; 
+        //console.log(countries);
+        let index = 1;
+        
+        countries[1] = "United States";
+        console.log(countries[1]);
+
+        countries[3] = "Srilanka";
+        countries[4] = "China";
+        
+        let cars = [
+            {name: "ford", color: "white"},
+            {name: "tata", color: "gray"}
+        ];
+
+        let arraryOfArrays = [countries, cars]
+
+        function greet() {
+            console.log("hi");
+        }
+
+        //Function Declaration
+        function showMessage(message) {
+            console.log(message);
+        }
+
+        //Call or Invoke Function
+        //showMessage();
+        showMessage("Hi");
+        showMessage("Hello World");
+        showMessage();
+
+        function add(x, y) {
+            return x + y;
+        }
+
+        let result = add(5, 3);
+        console.log(result);
+
+        console.log(add(5, 4));
+    </script>
+
+    <select id="selectedProperty">
+        <option>Name</option>
+        <option>Age</option>
+        <option>Address</option>
+    </select>
+</body>
+</html>

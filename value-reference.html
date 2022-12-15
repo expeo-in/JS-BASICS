@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Primitive or Value Types - String, Number, Boolean - 
+        // assign to a variable copied by value
+        // call a function passed by value
+        
+        // Reference Types - Object, Array, Function - copied by reference
+        // assign to a variable copied by reference
+        // call a function passed by reference
+
+        //value types are copied by value
+        let x = 10;
+        let y = x;
+        x = 20;
+
+        console.log("y", y);
+        console.log("x", x);
+
+        //reference type
+        let obj1 = { num: 10 };
+        let obj2 = obj1;
+        obj1.num = 20;
+
+        console.log("obj1", obj1);
+        console.log("obj2", obj2);
+
+        let arr1 = [1, 2, 3];
+        let arr2 = arr1;
+        arr1[0] = 5;
+        console.log("arr1", arr1);
+        console.log("arr2", arr2);
+
+
+        let x1 = 100; //Number 
+        
+        function copy1(param) {
+            param = 200;
+            //param.city = "vizag";
+            console.log(param);
+        }
+        console.log(x1);
+        copy1(x1);
+        console.log(x1);
+        
+
+        console.clear()
+
+        let obj3 = { name: "ganesh", address: {city: "chn", state: "tn"} };
+        
+        function copy2(param) {
+            param.name = "siva";
+        }
+
+        console.log(obj3.name);
+        copy2(obj3);
+        console.log(obj3.name);
+
+
+       //copy1(obj3.address) 
+    </script>
+</body>
+</html>

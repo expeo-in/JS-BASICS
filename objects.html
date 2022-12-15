@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Objects</h1>
+    <script>
+        // let name = "ganesh";
+        // let age = 30;
+        // let nationality = "indian";
+
+        // function displayPersonDetails(pesonName, personAge, personNationality) {
+        //     console.log(personName, personAge, personNationality)
+        // }
+        
+        // displayPersonDetails(name, age, nationality);
+
+        let person = {
+            name: "ganesh",
+            age: 30,
+            nationality: "indian",
+            graduated: true,
+            address: {
+                city: "chennai",
+                state: "tn"
+            },
+            skills: ["html", "css", "js"],
+
+            display: function() {
+                console.log("person info");
+            }
+        }
+
+        // let person2 = {
+        //     name: "siva",
+        //     age: 40,
+        //     nationality: "indian",
+        //     display: function() {
+        //         console.log("person info");
+        //     },
+        //     graduated: true,
+        //     address: {
+        //         city: "chennai",
+        //         state: "tn"
+        //     },
+        //     skills: ["html", "css", "js"]
+        // }
+
+        //person.display();
+
+        // function displayPersonDetails(personDetails)
+        // {
+        //     console.log(personDetails.name, personDetails.age, personDetails.nationality);
+        // }
+
+
+        // function createPerson(name, age) {
+        //     return {
+        //         name,
+        //         age,
+        //         display() {
+        //             console.log("person info");
+        //         }
+        //     }
+        // }
+
+        // const person1 = createPerson("ganesh", 20);
+        // console.log(person1);
+        // person1.display();
+        // const person2 = createPerson("siva", 50);
+        // person2.display();
+        // console.log(person2);
+
+
+        // const car = {
+        //     color: "blue",
+        //     brand: "benz",
+        //     start: function() {
+        //         console.log("car started");
+        //     }
+        // }
+        // car.start()
+
+    //     const car2 = {
+    //         color: "white",
+    //         brand: "ford",
+    //         start: function() {
+    //             console.log("car started");
+    //         }
+    //     }
+
+       const circle = {
+            radius: 10,
+            draw: function() {
+                console.log("a circle with radius " + this.radius);
+            }
+       } 
+
+       circle.draw();
+
+    //    const rectange = {};
+    //    rectange.color = "yellow";
+    //    rectange.length = 10;
+    //    rectange.bredth = 20;
+    //    rectange.draw = function() {
+    //     console.log("draw");
+    //    }
+
+       function createCar(color, brand) {
+            // const obj = {};
+            // obj.color = color;
+            // obj.brand = brand;
+            // obj.drive = function() {
+            //     console.log("drive car");
+            // }
+            // return obj;
+
+            return {
+                color: color,
+                brand: brand,
+                drive: function() {
+                    console.log("drive");
+                },
+                display: function() {
+                    console.log(this.color, this.brand);
+                }
+            };
+       }
+
+       const benzCar = createCar("blue", "benz");
+       console.log(benzCar);
+       benzCar.drive();
+
+       const fordCar = createCar("white", "ford");
+       console.log(fordCar);
+       fordCar.drive();
+       
+
+       //Constructor Function
+       function Car(color, brand) {
+            //this = {};
+            this.color = color;
+            this.brand = brand;
+            this.drive = function() {
+                console.log("drive");
+            } 
+       }
+
+       const car1 = new Car("blue", "maruti"); //create an empty object and assign it to 'this' keyword, add properties & methods, returns the object
+       const car2 = new Car("gray", "tata");
+       console.log(car1);
+       console.log(car2);
+       car1.drive();
+
+       function Person(name, age) {
+        this.name = name;
+        this.age = age;
+        this.work = function() {
+            console.log("work");
+        };
+        this.display = function() {
+            console.log(this.age, this.name);
+        }
+
+       }
+
+       const person1 = new Person("ganesh", 30);
+       const person2 = new Person("siva", 50);
+       person1.display();
+
+       //Object Literal
+       const square =  {
+        color: "blue",
+        draw: function() {
+        }
+       }
+    //    console.log("square", square);
+
+       square.sides = 4;
+       square.display = function() {
+       }
+    //    console.log("square", square);
+
+       delete square.color;
+       delete square.draw;
+
+    //    console.log("square", square);
+
+
+       //Object Constructor Function
+    //    const employee = new Object();
+    //    employee.name = "emp1";
+    //    employee.age = 30;
+    //    console.log(employee);
+
+    //    console.log(person1.constructor);
+    //    console.log(square.constructor);
+    //    console.log(console.constructor);
+
+       const rectangle = {
+            color: "red",
+            length: 10,
+            breadth: 20
+       }
+       console.log(rectangle);
+
+        // const rectangle = new Object();
+        // rectangle.color = "red";
+        // rectangle.length = 10;
+        // rectangle.breadth = 20;
+
+        // const name  = new String("ganesh");
+        const name = "ganesh";
+        
+        //const flag = new Boolean(true);
+        const flag = true;
+
+        //const num = new Number(10);
+       const num = 10;
+
+        //const cities = new Array(5);
+
+       //Built-in Constructor Function
+        //new String
+        //new Boolean
+        //new Number
+        //new Object
+        //new Array
+        //new Function
+    </script>
+</body>
+</html>
