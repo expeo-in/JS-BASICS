@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const obj1 = { name: "ganesh"};
+        // obj1 -> Object Prototype
+
+        const arr1 = [1, 2, 3];
+        // arr1 -> Array prototype -> Object Prototype
+
+        const date1 = new Date();
+        // date1 -> Date prototype -> Object Prototype
+
+        function Person(firstName, lastName) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+
+            
+            Object.defineProperty(this, "experience", {
+                configurable: false, 
+                enumerable: true,
+                writable: true
+            })
+        }
+        
+        Person.prototype.display = function() {
+            console.log("peron")
+        }
+        Object.defineProperty(Person.prototype, "display", {
+            writable: false
+        })
+
+        Object.defineProperty(Object.prototype, "toString", {
+            enumerable: true
+        });
+
+        // person1 -> Person Prototype -> Object Prototype
+        const person1 = new Person("ganesh", "kumar");
+        const person2 = new Person("siva", "kumar");
+
+        console.log(Object.getOwnPropertyDescriptor(person1, "firstName"));
+
+        // person1.toString = function() {
+        //     console.log("person1");
+        // }
+        Person.prototype.toString = function() {
+            console.log("person prototype toString");
+        }
+        // Object.prototype.toString = function() {
+        //     console.log("object prototype tostring");
+        // }
+        
+
+        // Object.defineProperty(person1, "firstName", {
+        //     configurable: false
+        // });
+
+        //configurable: true; can delete
+        //enumerable: true; can iterate
+        //writable: true; can change value
+
+        // for(let key in person1)
+        //     console.log(key);
+    </script>
+</body>
+</html>

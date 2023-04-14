@@ -204,7 +204,8 @@
        const rectangle = {
             color: "red",
             length: 10,
-            breadth: 20
+            breadth: 20,
+            draw: function() {}
        }
        console.log(rectangle);
 
@@ -231,6 +232,60 @@
         //new Object
         //new Array
         //new Function
+
+        console.clear();
+
+        //Object Methods - keys, values, entries
+        let countries = ["India", "Pakistan", "China"];
+        for(let val of countries) {
+            console.log(val);
+        }
+
+        console.clear();
+        for(let key in rectangle) {
+            console.log(key, rectangle[key]);
+        }
+
+        console.clear();
+        // Object.keys - returns all the members of the object
+        for(let key of Object.keys(rectangle)) {
+            console.log(key, rectangle[key]);
+        }
+
+        console.clear();
+        for(let value of Object.values(rectangle)) {
+            console.log(value);
+        }
+
+        console.clear();
+        for(let entry of Object.entries(rectangle)) {
+            console.log(entry);
+        }
+
+        console.clear();
+        // Cloning/Copying an object
+        //option - 1
+        const personCopy1 = {};
+        for(let key in person) {
+            personCopy1[key] = person[key];
+        }
+        console.log(personCopy1);
+
+        console.clear();
+        const testobj = {};
+        const personCopy2 = Object.assign(testobj, person);
+        console.log(personCopy2);
+
+        console.clear();
+        const personCopy3 = {...person}; //spread operator ...
+        console.log("personcopy3", personCopy3);
+
+        let a = 10;
+        let b = 10;
+
+        let personRef2 = {};
+
+        
     </script>
 </body>
 </html>

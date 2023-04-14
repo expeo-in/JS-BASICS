@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // const message2 = new String("hello");
+        // message2.includes() //instance method
+        
+
+        // const message3 = new String("hi");
+        // message2.length //instance prop
+        
+
+        let message = "                hello world from js, hello from html ";
+        // Property
+        // console.log(message.length);
+        // console.log(message[0]);
+
+        // Methods
+        //console.log(message.includes("js"));
+        //console.log(message.startsWith("h"));
+        //console.log(message.endsWith("h"));
+        //console.log(message.indexOf("h"));
+        message = message.replace("js", "javascript");
+        message = message.replace("hello", "hi");
+        message = message.replace(/hello/g, "hi");
+        console.log(message);
+
+        console.log(message.substring(9, 13));
+        message = message.trim();
+        message = message.toUpperCase();
+        message = message.toLowerCase();
+        console.log(message.split(" "));
+        
+        const skills = "html,css,js"
+        console.log(skills.split(","));
+
+        // Escape Sequence
+        const text = 'ganesh\'s \n \\ book';
+        console.log(text);
+
+        // String concatenation
+        let name = "ganesh";
+        let age = 30;
+        let profile = "Hi, I am " + name + " aged " + age;
+        console.log(profile);
+
+        
+        let multiline = "Sometimes, your code will include strings which are very long. " +
+        " Rather than having lines that go on endlessly, or wrap at the whim of your editor, " +
+        " you may wish to specifically break the string into multiple lines in the " +
+        "source code without affecting the actual string contents.";
+        console.log(multiline);
+
+        console.clear();
+        // Template Literals
+
+        let multiline2 = `Sometimes, your code will include string"s which are very long's.
+        Rather than having lines that go on endlessly, or wrap at the whim of your editor,
+        you may wish to specifically break the string into multiple lines in the
+        source code without affecting the actual string contents.`;
+        console.log(multiline2);
+
+        // String Interpolation
+        //let profile = "Hi, I am " + name + " aged " + age;
+        let profile2 = `Hi, I am ${name} aged ${age}`;
+
+        let registerTemplate = `Hi, ${username}
+        thanks for registering
+        `;
+        console.log(profile2);
+        </script>
+</body>
+</html>

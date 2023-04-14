@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const walkable = {
+            walk: function() {
+                console.log("walk");
+            }
+        }
+
+        const eatable = {
+            eat: function() {
+                console.log("eat");
+            }
+        }
+
+        const swimmable = {
+            swim: function() {
+                console.log("swim");
+            }
+        }
+
+        // const dog = Object.assign({}, walkable, eatable);
+        // const goldfish = Object.assign({}, eatable, swimmable);
+        // const person = Object.assign({}, walkable, eatable, swimmable);
+
+        function Dog() {}
+
+        //Object.assign(Dog.prototype, walkable, eatable);
+        mixin(Dog.prototype, walkable, eatable);
+        const d1 = new Dog();
+
+        function mixin(target, ...sources) {
+            Object.assign(target, ...sources);
+        }
+    </script>
+</body>
+</html>

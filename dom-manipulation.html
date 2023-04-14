@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>DOM Manipulation</h1>
+    <div id="div1">
+        <p id="p1">para 1</p>
+        <p>para 2</p>
+    </div>
+    <hr>
+    <div id="div2"></div>
+    <script>
+        const divObject = document.getElementById("div1");
+        console.log(divObject.nodeName);
+        console.log(divObject.nodeType);
+        console.log(divObject.parentNode);
+        console.log(divObject.childNodes);
+
+
+        
+        const paraObject = document.getElementById("p1");
+        console.log(paraObject.childNodes[0]);
+
+
+        //adding new element to the end
+        const newPara = document.createElement("p");
+        // const paraText = document.createTextNode("para 3");
+        // newPara.appendChild(paraText);
+        newPara.innerHTML = "para 3";
+
+        // divObject.appendChild(newPara);
+
+        document.getElementById("div1").insertBefore(newPara, document.getElementById("p1"));
+
+        //divObject.innerHTML += "<p>new para</p>";
+
+        document.getElementById("div2").innerHTML = "<p>para 1</p><p>para 2</p>";
+    </script>
+</body>
+</html>

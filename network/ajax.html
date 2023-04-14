@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Ajax</h1>
+    <div><a href="ajax-intro.html">Ajax Intro</a></div>
+    <button onclick="loadHtml()">Load HTML</button>
+    <button onclick="loadJSON()">Load JSON</button>
+    
+    <h2 id="progressbar" style="display:none">Loading Data...</h2>
+    <div id="divAjax">
+
+    </div>
+
+    <div id="div2">
+
+    </div>
+
+
+    <div>
+        Countries:
+        <select id="ddlCountries" style="width: 200px;" onchange="loadStates()">
+            <option>Select</option>
+        </select>
+    </div>
+    <div>
+        States:
+        <select id="ddlState" style="width: 200px;">
+            <option>Select</option>
+        </select>
+    </div>
+
+    <script>
+        function loadHtml() {
+            
+            //method or verb: get, post, put, delete
+            document.getElementById("progressbar").style.display = "block";
+
+            window.setTimeout(function(){
+                const xhr = new XMLHttpRequest();
+
+                xhr.onreadystatechange = function() {
+                    console.log("readyState", this.readyState);
+                }
+
+                xhr.onload = function() {
+                    document.getElementById("progressbar").style.display = "none";
+                    console.log(this);
+
+                    document.getElementById("divAjax").innerHTML = this.responseText;
+                    //document.getElementById("div2").innerHTML = document.getElementById("divAjax").children[1].innerHTML;
+                }
+
+                xhr.open("GET", "http://127.0.0.1:5500/network/ajax-intro.html");
+                xhr.send();
+            }, 2000)
+            
+        }
+
+        function loadJSON() {
+            const xhr = new XMLHttpRequest();
+
+            xhr.onload = function() {
+                const data = this.responseText;
+                const countries = JSON.parse(data);
+                for(let item of countries) {
+                    document.getElementById("ddlCountries").innerHTML += `<option value="${item.name}">${item.name}</option>`;
+                }
+            }
+
+            xhr.open("GET", "http://127.0.0.1:5500/contents/countries.json");
+            xhr.send();
+        }
+        loadJSON();
+
+        function loadStates() {
+            const xhr = new XMLHttpRequest();
+
+            xhr.onload = function() {
+                const data = this.responseText;
+                const states = JSON.parse(data);
+                document.getElementById("ddlState").innerHTML = "";
+                for(let item of states) {
+                    document.getElementById("ddlState").innerHTML += `<option value="${item.code}">${item.name}</option>`;
+                }
+            }
+
+            const selectedCountry = document.getElementById("ddlCountries").value.toLowerCase();
+            xhr.open("GET", "http://127.0.0.1:5500/contents/" + selectedCountry + ".json");
+            xhr.send();
+        }
+
+        loadHtml();
+    </script>
+</body>
+</html>

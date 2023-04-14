@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Maps</h1>
+    <script>
+        const countries  = ["IN", "US"];
+        countries[0] = "India"
+
+        const person = {
+            "fname": "ganesh",
+            "lname": "kumar",
+            "age": "30"
+        }
+        const map1 = new Map();
+        // map1.set("word1", 1); 
+        // map1.set("word2", "meaning2");
+        // map1.set("word3", {name: "ganesh"});
+        //console.log(map1);
+
+        map1.set(1, "a number");
+        map1.set("2", "a string");
+        map1.set({name: "ganesh"}, "a person");
+
+        //reading
+        // console.log(map1.get("word1"));
+
+        //insert or update
+        // map1.set("word1", "meaning1 changed");
+
+        //delete
+        // map1.delete("word2");
+
+        //exist
+        //console.log(map1.has("word2"));
+
+        for(let key of map1.keys())
+            console.log(key);
+
+        for(let value of map1.values())
+            console.log(value);
+
+        // for(let entry of map1.entries())
+        //     console.log(entry[0], entry[1]);
+
+        // Map
+        
+
+
+        const age = 50;
+
+        // heap
+        // memory address: 1000, value: {name: "ganesh"}; 
+        // memory address: 1001, value: {key:1000, value: "person1", key: 1002, value: person2} 
+        // memory address: 1002, value: {name: "siva"}; 
+        
+        // stack
+        // memory address: 1, name: obj1, value: null --deleted
+        // memory address: 2, name: map2, value: 1001
+        // memory address: 3, name: age, value: 50
+
+        
+        // const map2 = new Map();
+        // let obj1 = {name: "ganesh"}; 
+        // map2.set(obj1, "person1");
+
+        // let obj2 = {name: "siva"};
+        // map2.set(obj2, "person2")
+
+        // obj1 = null;
+
+
+        // WeakMap
+        
+
+        const weakmap1 = new WeakMap();
+
+        let obj1 = {name: "ganesh"};
+        weakmap1.set(obj1, "100");
+
+
+        let obj2 = {name: "siva"};
+        weakmap1.set(obj2, "200")
+
+        obj1 = null;
+
+        //heap
+        // address: 1000, value: {name: "india"}
+
+        //stack
+        // address: 2000, name: x, value: null
+        // address: 2001, name: y, value: 1000
+
+
+        let x = {name: "india"};
+        let y = x;
+        x = null;
+
+        
+
+
+        function getCountryDiscount(countryId){
+            const countries = new Map();
+            countries.set(1, {text: "India", discount: 10});
+            countries.set(2, {text: "United States", discount: 5});
+            const country = countries.get(countryId);
+
+            countries.delete(countryId);
+            
+            return country.discount;
+        }
+        
+
+        function getCountryDiscountUsingArray(countryId){
+            const countries = [
+                {id: 1, text: "India", discount: 10}, 
+                {id: 2, text: "United States", discount: 5}
+            ];
+
+            const country = countries.find(c => c.id === countryId);
+            return country.discount;
+        }
+
+    </script>
+
+    <select>
+        <option value="1">India</option>
+        <option value="2">United States</option>
+    </select>
+</body>
+</html>

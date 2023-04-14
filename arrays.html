@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- header -->
+    <header></header>
+    <!-- sidebar -->
+    <aside></aside>
+<script>
+// Array Constructor
+//const numbers2 = new Array(1, 2, 3, 4, 5);
+
+
+// Array Literal
+const numbers = [1, 2, 3, 4, 5, 1, 6, 8, 1];
+/*
+// inserting items
+numbers.push(6, 7, 8); //single or multiple values at the end
+numbers.unshift(10, 20, 30); //at the start
+numbers.splice(3, 0, 100, 200); //in the middle
+*/
+
+
+// removing items
+//numbers.pop(); //last item
+//numbers.shift(); //first item
+//const removedItems = numbers.splice(1, 3); //middle
+//numbers.splice(1, 1, 10, 20); //delete and insert
+
+// finding items
+//console.log(numbers);
+
+const cars = ["ford", "bmw", "benz", "bmw"];
+
+console.log(cars.indexOf("ferrari")); //first index pos
+console.log(cars.lastIndexOf("bmw")); //last index pos
+console.log(cars.includes("tata"));
+
+
+// // existence
+// if(cars.indexOf("benz") !== -1) {
+
+// }
+
+// if(cars.includes("benz")) {
+
+// }
+
+// // not existence
+// if(cars.indexOf("ferrari") === -1) {
+
+// }
+// if(!cars.includes("ferrari")) {
+
+// }
+console.clear();
+let person1 = {id: 1, name: "ganesh", age: 30}; //100
+let person2 = {id: 2, name: "siva", age: 40}; //200
+let person3 = {id: 3, name: "kumar", age: 50}; //300
+
+let person1Ref = person1;
+const persons = [
+    person1,
+    person2,
+    person3
+]; //400
+
+persons = []; //500
+
+console.clear();
+//console.log(persons.find(serchPersonByAge(person)));
+
+//option 1 - named function
+let result = persons.find(checkPerson);
+
+// option 2 - anonymous function
+persons.find(function(person){
+    return person.name === "siva";
+})
+
+
+
+console.log(result);
+
+function serchPersonByAge(person){
+    return (person.age >= 30);
+}
+
+function checkPerson(person){
+    return person.name === "siva";
+}
+
+// find method - takes a function as parameter
+// function will receive an input and return boolean 
+// find method will return first matching object
+
+
+let countries = [
+    {id: 1, code: "IN"},
+    {id: 2, code: "PK"},
+    {id: 3, code: "SL"},
+]
+
+console.log(countries.find(function(country) {
+    return country.code == "IN"
+}));
+
+
+
+
+
+function multiply(x, y) {
+    return x * y;
+}
+
+//let users = [{id: 1}, {id: 2}, {id: 3}]
+//console.log(persons.includes(person1Ref));
+
+// for(let i=0; i<persons.length; i++) {
+//     // if(persons[i].name === "kumar")
+//     // console.log(i, persons[i]);
+//     let result = serchPersonByAge(persons[i]);
+//     if(result)
+//     return persons[i];
+// }
+
+let index = 0;
+for(let person of persons) {
+    if(person.name === "kumar")
+    console.log(person);
+//    index++;
+}
+
+
+</script>    
+    <!-- footer -->
+    <footer></footer>
+</body>
+</html>

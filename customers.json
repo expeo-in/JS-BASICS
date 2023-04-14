@@ -1,0 +1,24 @@
+[
+    {
+        "name": "ganesh",
+        "age": 30,
+        "graduated": true,
+        "skills": ["html", "css", "javascript"],
+        "degrees": [
+            {
+                "title": "degree1",
+                "university": "univ1",
+            },
+            {
+                "title": "degree2",
+                "university": "univ2"
+            }
+        ]
+    },
+    {
+        "name": "siva",
+        "age": 40,
+        "graduated": true,
+        "skills": ["html", "css", "javascript"]
+    }
+]

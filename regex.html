@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Regex</h1>
+    <script>
+        // const text = "Hello World WORLD";
+        // //literal 
+        // const pattern = /world/gi;
+        
+        // const pattern2 = new RegExp("hi");
+
+        // string method 
+
+        //search
+        // console.log(text.search(pattern));
+        
+        //replace
+        // const result = text.replace(pattern, "globe");
+        // console.log(result);
+
+        // console.log(text.match(pattern))
+
+        // regex methods
+        // const result = pattern.test(text);
+        // console.log(result);
+
+        // console.log(pattern.exec(text));
+        // console.log(pattern.exec(text));
+
+
+        //const str = "+7(903)-123-45-67";
+        //anchors
+        // const str = "hello javascript Mop Top";
+        // const pattern = /^\w$/g;
+        // console.log(str.match(pattern));
+
+        // const str = "12:00";
+        // const pattern = /\d\d:\d\d/;
+        // //console.log(str.match(pattern));
+        // console.log(pattern.test(str));
+
+        // Word Boundary
+        // const str = "Hello, JavaScript TypeScript ";
+        // const pattern = /Script\b/gi;
+        // console.log(str.match(pattern));
+
+        /* Quantifiers */
+        // const input = "2000";
+        // + means 1 or more, * means 0 or more, ? means 0 or 1
+        // // \d{4} - exact 4, \d{4,5} - min 4 max 5 digits, \d{4,} min 4
+        // //const pattern = /^\d{4,}$/g;
+        // const pattern = /^2\d\d\d$/;
+        // //console.log(year.match(pattern));
+        // console.log(pattern.test(input));
+
+
+        //const str = "Is this color or colour";
+        //const pattern = /colou?r/g;
+        //console.log(str.match(pattern));
+
+        // const email ="213231@gmail.net";
+        // const pattern = /^\w+@\w+.?\w{2,}$/;
+        // console.log(pattern.test(email));
+
+        // const zipPattern = /^\d{4}-\d{5}$/
+
+        // const str = '<button type="submit" class="btn">Send</button>';
+        // const pattern = /".+?"/g;
+        // console.log(str.match(pattern));
+
+        // const text = "posts/1";
+        // const pattern = /(?<resource>\w+)\/(?<id>\d+)/;
+        // const result = text.match(pattern);
+        // console.log(result.groups.id);
+        // console.log(result.groups.resource);
+
+        //Alternaton |
+        // const str = "00:00 10:10 23:59 25:99 1:2";
+        // const pattern = /([01]\d|2[0-3]):[0-5]\d/g;
+        // console.log(str.match(pattern));
+
+        // let text = "1 turkey costs 30€";
+        // //const pattern = /\d+(?=€)/
+        // console.log(text.match(/\d+(?=€)/));
+
+        // let text = "1 turkey costs $50";
+        // const pattern = /(?<=\$)\d+/
+        // console.log(text.match(pattern));
+
+
+    </script>
+    <input type="text" pattern="">
+</body>
+</html>

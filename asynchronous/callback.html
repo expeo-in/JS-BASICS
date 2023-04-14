@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <h1>Asynchronous Code</h1>
+    <button onclick="startTimeout()">Start Timeout</button>
+    <button onclick="stopTimeout()">Stop Timeout</button>
+    <button onclick="startInterval()">Start interval</button>
+    <button onclick="stopInterval()">Stop interval</button>
+    <input type="text">
+
+    <button onclick="startCalc()">Start Calc</button>
+    <script>
+
+        // Synchronous
+        // function display() {
+        //     console.log("display started");
+
+        //     for(let i=0; i< 10; i++)
+        //         console.log(i);
+            
+        //     console.log("display completed");
+        // }
+
+       
+
+        // Asynchronous
+
+        //callback
+        // console.log("before timer");
+        // window.setTimeout(function(){
+        //     console.log("time reached");
+        // }, 1000);
+        // console.log("after timer");
+
+        function loadScript(url, callback) {
+            const script = document.createElement("script");
+            script.src = url;
+            document.body.appendChild(script);
+            console.log("script added to body");
+            
+            script.onload = callback;
+        }
+
+        //callback hell
+        /*
+        loadScript("https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js", function(){
+            console.log(moment().format('MMMM Do YYYY, h:mm:ss a'));
+            if(success) {
+                loadScript("/scripts/math.js", function(){
+                    if(success) {
+                            loadScript("/scripts/math.js", function(){
+                            console.log(add(2, 4));
+
+                            loadScript("/scripts/math.js", function(){
+                                console.log(add(2, 4));
+                            });
+                        });
+                    }
+                    else {
+
+                    }
+                    console.log(add(2, 4));
+
+                    
+                });
+            }
+            else {
+
+            }
+
+            
+        })
+        */
+        
+
+        
+    </script>
+</body>
+</html>

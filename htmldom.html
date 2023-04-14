@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            .para {
+                color: red;
+            }
+
+            .para-blue {
+                color: blue;
+            }
+
+            #head1 {
+
+            }
+
+            div {
+
+            }
+
+            ul.hlists > li {
+
+            }
+        </style>
+        <script>
+            
+
+            
+        </script>
+    </head>
+    <body onclick="console.log('body clicked')">
+        <h1 id="head1" style="border: 1px solid; background-color: yellow;"><span>HTML DOM</span></h1>
+        <h2 id="head2">Heading 2</h2>
+        <h2 id="head3">Heading 3</h2>
+        <p class="para">para 1</p>
+        <p class="para">para 2</p>
+        <p class="para">para 3</p>
+        <hr>
+        <div id="d1" class="section">
+            <p>para1</p>
+            <p>para1</p>
+            <p>para1</p>
+        </div>
+
+        
+        
+        <img src="">
+        <img src="">
+        <a href="" id="a1">Google.com</a>
+
+        <div>
+            <button id="btn1" onclick="alert(1);console.log('button clicked')">Button 1</button>
+            <button onclick="displayDate()">Button 2</button>
+            <button onclick="chageColor()">Change Background Color</button>
+            <button id="btn4">Remove Event</button>
+            <button id="btn5" onclick="this.innerHTML = 'Button Text Changed'">Button This</button>
+        </div>
+        <p></p>
+
+        <form action="" onsubmit="return false">
+        <div>
+            <div>Email: <input name="email" id="email" type="text"></div>
+            <div>Age: <input name="age" id="age" type="text" onkeydown="console.log('keydown')" onkeyup="console.log('keyup')" onkeypress="console.log('keypress')"></div>
+            <input type="submit">
+        </div>
+        </form>
+
+
+        <div id="d2" style="background-color: lightgreen; padding: 10px;">
+            <ul id="ul1" class="hlists" style="background-color: lightyellow; padding: 10px;">
+                <li id="li1" style="padding: 10px;">item1</li>
+                <li>item2</li>
+                <li>item3</li>
+                <li>item4</li>
+                <li>item5</li>
+            </ul>
+        </div>
+
+
+        <div id="d3" style="background-color: yellow; width: 500px; height: 500px" 
+        onmousedown="console.log(event)" 
+        onmouseup="console.log(event)"
+        onclick="console.log(event)">
+        </div>
+
+        <a href="#" onclick="joinMeeting()">Join Meeting</a>
+        <div id="divMeeting" style="display: none">
+            Meeting: <input type="text">
+            <button>Join Meeting</button>
+        </div>
+        <script>
+            //console.log(document);
+            // const head1Element = document.getElementById("head1");
+            // console.log(head1Element.id);
+            //console.log(head1Element.innerHTML); //get
+            // console.log(head1Element.innerText);
+            
+            document.getElementById("head1").innerText = "Changed"; //set
+            const paras = document.getElementsByTagName("p");
+            for(let i =0; i<paras.length; i++)
+                paras[i].innerHTML = "para text changed";
+
+            console.log(document.getElementsByClassName("section"));
+
+            console.log(document.getElementsByName("gender"));
+
+            console.log(document.querySelector("#head1"));
+            console.log(document.querySelectorAll(".para"));
+            console.log(document.querySelectorAll("ul.hlists > li"));
+
+            //document.images
+            //document.links
+            // console.log(document.images);
+
+            // changing content
+            document.getElementById("d1").innerHTML = `<form method="get">
+            <input name="t1" id="t1">
+            <input name="t2" id="t2">
+            Gender<input type="radio" name="gender" value="Female">Female<input type="radio" name="gender" value="male">male
+            <input type="submit">
+            </form>`;
+
+
+            // get and set attributes
+            const a1 = document.getElementById("a1");
+            console.log(a1.href);
+            a1.href = "http://www.google.com";
+            console.log(a1.href);
+            a1.target = "_blank";
+            
+            a1.setAttribute("href", "http://www.microsoft.com");
+
+            // changing styles
+            document.getElementById("head1").style.color = 'blue'
+            document.getElementById("head1").style.backgroundColor = 'gray'
+
+
+            function displayDate() {
+                alert(new Date());
+            }
+
+            function chageColor() {
+                document.body.style.backgroundColor = "lightblue";
+            }
+            
+            document.getElementById("head1").onclick = displayDate;
+            
+            document.getElementById("head2").onclick = function() {
+                alert("heading click");
+            };
+            
+
+            document.getElementById("head3").addEventListener("click", displayDate);
+            document.getElementById("head3").addEventListener("click", chageColor);
+
+            document.getElementById("btn4").onclick = function() {
+                document.getElementById("head3").removeEventListener("click", displayDate);
+            }
+
+            //document.getElementById("btn1").onclick = displayDate;
+            document.getElementById("btn1").addEventListener("click", displayDate);
+
+            // document.getElementById("d2").addEventListener("click", function(){
+            //     alert("div2 clicked" + ":" + event.currentTarget.id + ":" + event.target.id);
+            // })
+            // document.getElementById("ul1").addEventListener("click", function(){
+            //     alert("ul clicked" + ":" + event.currentTarget.id + ":" +  event.target.id);
+            // })
+            // document.getElementById("li1").addEventListener("click", function(){
+            //     alert("li clicked" + ":" +  event.currentTarget.id + ":" +  event.target.id);
+            // })
+
+            function validateEmail(control) {
+                if(control.value != "abc@gmail.com")
+                    alert("invalid email");
+            }
+
+            // document.getElementById("email").onblur = function() {
+            //     validateEmail(this);
+            // }
+
+            document.getElementById("email").onkeydown = function(event) {
+                console.log(event);
+                if(event.key == "a")
+                    event.preventDefault();
+            }
+
+            
+
+            document.getElementById("ul1").onclick = function(event) {
+                if(event.target.nodeName == "LI")
+                    event.target.innerHTML += " changed";
+
+                event.stopPropagation();
+            }
+
+            document.getElementById("a1").onclick = function(event) {
+                //event.preventDefault();
+            }
+
+            function joinMeeting() {
+                const currentDate = new Date();
+                const startDate = new Date("2023-02-08");
+                const endDate = new Date("2023-02-17")
+                if(currentDate > startDate)
+                    document.getElementById("divMeeting").style.display = "block";
+                else
+                    alert("Not allowed");
+                event.preventDefault();
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Constrcutor Function
+        // function Circle(radius) {
+        //     this.radius = radius;
+        //     this.draw = function() {
+        //         console.log("draw");
+        //     }
+        // }
+        // Circle.prototype.move = function() {
+
+        // }
+        // const c1 = new Circle(10);
+
+        class Circle {
+
+            constructor(radius) {
+                this.radius = radius;
+                this.draw = function() {
+                    console.log("draw");
+                }
+            }
+
+            rotate() {
+                console.log("rotate");
+            }
+
+            static move(){
+                console.log("move");
+            }
+
+            static parse(radius) {
+                return new Circle(radius);
+            }
+        }
+
+        const c1 = new Circle(10);
+        c1.rotate();
+
+        const c2 = new Circle(20);
+        c2.draw();
+
+        console.log(c1);
+        // c1 => Circle Prototype => Object Prototype
+
+        Circle.move();
+       
+        const c3 = Circle.parse(10);
+    </script>
+</body>
+</html>

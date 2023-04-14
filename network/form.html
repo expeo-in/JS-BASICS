@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Register</h1>
+    <form method="post" onsubmit="return submitDataUsingPost()">
+        <div>First Name: <input type="text" name="fname" id="fname"></div>
+        <div>Last Name: <input type="text" name="lname" id="lname"></div>
+        <input type="Submit">
+    </form>
+
+    <hr>
+    <button onclick="submitDataUsingGet()">Submit Get</button>
+    <button onclick="submitDataUsingPost()">Submit Post</button>
+    <script>
+        function submitDataUsingGet() {
+            const xhr = new XMLHttpRequest();
+            xhr.onload = function() {
+                console.log(this);
+            }
+            const url = `register.html?fname=${document.getElementById("fname").value}&lname=${document.getElementById("lname").value}`;
+            xhr.open("GET", url);
+            xhr.send();
+            return false;
+        }
+
+        function submitDataUsingPost() {
+            const xhr = new XMLHttpRequest();
+            xhr.onload = function() {
+                console.log(this);
+            }
+            xhr.open("POST", "register.html");
+            xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            const data = `fname=${document.getElementById("fname").value}&lname=${document.getElementById("lname").value}`;
+            //xhr.send("fname=ganesh&lname=kumar");
+            xhr.send(data);
+            return false;
+        }
+
+        function submitDataUsingJSON() {
+            const xhr = new XMLHttpRequest();
+            xhr.onload = function() {
+                console.log(this);
+            }
+            xhr.open("POST", "register.html");
+            xhr.setRequestHeader("Content-type", "application/json");
+            const data = {
+                fname: document.getElementById("fname").value,
+                lname: document.getElementById("lname").value
+            };
+            xhr.send(JSON.stringify(data));
+            return false;
+        }
+
+        //http methods - get, post , put, delete
+
+        //server side code - pages
+        //server side code - data - REST API/Service - CRUD (C-Create, R-Read, U-Update, D-Delete)
+        // create - post
+        // read - get
+        // update - put
+        // delete - delete
+    </script>
+</body>
+</html>

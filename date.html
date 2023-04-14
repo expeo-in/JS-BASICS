@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Date</h1>
+    <script>
+        const dates  = [
+            new Date(),
+            new Date("19 Dec 2022"),
+            new Date("2022-12-10"), //YYYY-MM-DD
+            new Date("2022-12-10T18:30:20"), //YYYY-MM-DDTHH:mm:ss.sssZ
+            new Date("2022-12-10T18:30:20Z"), //UTC (Universal Time Coordinated) is the same as GMT (Greenwich Mean Time).
+            new Date("2022-12-19T06:54:20-05:00"), //+= HH:MM
+            new Date(86400000), //Jan 1 1970,
+            new Date(2022, 11)
+        ];
+        
+        for(let values of dates) {
+            console.log(values);
+        }
+
+        // Static methods
+        console.log(Date.now());
+        console.clear()        ;
+
+        const date1 = new Date();
+        console.log(date1);
+        // Get
+        //console.log(date1.getYear());
+        console.log(date1.getFullYear());
+        console.log(date1.getMonth());
+        console.log(date1.getDate());
+        console.log(date1.getDay()); //0-Sunday, 1-Monday .. 6-Sat
+        
+        // Set
+        date1.setFullYear(date1.getFullYear()+1);
+        date1.setDate(date1.getDate()+1);
+
+        console.clear();
+        // Display
+        console.log(date1.toString());
+        console.log(date1.toDateString());
+        console.log(date1.toTimeString());
+
+        console.log(date1.toLocaleString());
+        console.log(date1.toLocaleDateString());
+        console.log(date1.toLocaleTimeString());
+
+        console.log(date1.toISOString());
+        console.log(date1.toUTCString());
+        
+
+        const date2 = new Date();
+        date2.setFullYear(2023);
+        console.log(date2);
+        //date2 = new Date(2023);
+
+    </script>
+</body>
+</html>

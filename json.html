@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //javascript object
+
+        const person = {
+            "name": "ganesh",
+            "age": 30,
+            "graduated": true,
+            "skills": ["html", "css", "javascript"]
+        };
+        console.log(person);
+        
+        // convert object to json format - serialize
+        const personJson = JSON.stringify(person);
+        console.log(personJson);
+
+
+        //convert json format to object - deserialize
+        const person2 = JSON.parse(personJson);
+
+        console.log(person2);
+
+        /*
+        //in json format
+        const data = `
+        {
+            "name": "ganesh",
+            "age": 30,
+            "graduated": true,
+            "skills": ["html", "css", "javascript"],
+            "address": {
+                "street1": "1",
+                "city": "",
+                "state": "",
+                "country": ""
+            }
+        }`;
+        
+
+        // array of customer information in json format
+        const customers = `
+        [
+            {
+                "name": "ganesh",
+                "age": 30,
+                "graduated": true,
+                "skills": ["html", "css", "javascript"],
+                "degrees": [
+                    {
+                        "title": "degree1",
+                        "university": "univ1",
+                    },
+                    {
+                        "title": "degree2",
+                        "university": "univ2",
+                    }
+                ]
+            },
+            {
+                "name": "siva",
+                "age": 40,
+                "graduated": true,
+                "skills": ["html", "css", "javascript"]
+            }
+        ]
+        `;
+    
+        // javascript array
+        const ary = [
+            {
+                "name": "ganesh",
+                "age": 30,
+                "graduated": true,
+                "skills": ["html", "css", "javascript"]
+            },
+            {
+                "name": "siva",
+                "age": 40,
+                "graduated": true,
+                "skills": ["html", "css", "javascript"]
+            }
+        ];
+        */
+        
+    </script>
+</body>
+</html>

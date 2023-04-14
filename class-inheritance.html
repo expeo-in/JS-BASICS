@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Shape {
+            constructor(color) {
+                this.color = color;
+            }
+
+            draw() {
+                console.log("shape draw");
+            }
+
+            scale() {
+                console.log(this.color);
+            }
+        }
+
+        let _name = Symbol();
+        let _id = Symbol();
+
+        class Circle extends Shape {
+            
+
+            constructor(radiusParameter, colorParameter, nameParameter) {
+                super(colorParameter);
+                this.radius = radiusParameter;
+                this[_name] = nameParameter;
+                this[_id] = "100";
+                this.move = () => {
+                    console.log("circle move", this);
+                }
+            }
+
+            draw() {
+                super.draw();
+                console.log("circle draw");
+            }
+
+            
+
+            rotate() {
+                
+                console.log("rotate", this[_id]);
+            }
+        }
+
+        class SpecialCircle extends Circle {
+            constructor(radius, color) {
+                super(radius, color);
+            }
+        }
+
+        class Square extends Shape {
+            constructor(side) {
+                super("yellow");
+                this.side = side;
+            }
+
+            draw() {
+                console.log(this.side)
+                this.paint();
+            }
+
+            paint() {
+                console.log("square paint");
+                this.scale();
+            }
+        }
+
+        const c1 = new Circle(10, "red", "circle1");
+        c1.move();
+        const fn = c1.move;
+        fn();
+
+        
+        
+
+        const c2 = new Circle(30, "yellow");
+        // c1 => Circle Prototype => Shape Prototype => Object Prototype
+
+        const shapes = [
+            new Circle(10, "red"),
+            new Square(20)
+        ]
+        // for(let shape of shapes)
+        //     shape.draw();
+
+        
+        const person = {
+            "name": "ganesh",
+            "display": function() {}
+        }
+        console.log(person["name"]);
+
+
+        const s1 = new Square(100);
+
+        class SpecialSquare extends Square {
+            constructor(position) {
+                console.log("special square constructor started");
+                super();
+                this.position = position;
+                console.log("special square constructor ended");
+            }
+        }
+
+
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        Shape
+        Circle, Rectangle, Square
+        */
+       
+        function inherit(Child, Parent) {
+            Child.prototype = Object.create(Parent.prototype);
+            Child.prototype.constructor = Child;
+        }
+
+       function Shape(color) {
+            this.color = color;
+       }
+       Shape.prototype.draw = function(){
+            console.log("draw shape", this.color);
+       }
+       ///const s1 = new Shape();
+       //s1 => Shape prototype => Object Prototype
+        
+        function Circle(radius, color) {
+            Shape.call(this, color);
+            this.radius = radius;
+        }
+
+        // Circle.prototype = Object.create(Shape.prototype); 
+        // Circle.prototype.constructor = Circle;
+        inherit(Circle, Shape);
+
+        Circle.prototype.move = function() {
+            console.log("cirlce move");
+        }
+        Circle.prototype.draw = function() {
+            console.log("draw circle");
+        }
+
+        
+        function Square(side, color){
+            Shape.call(this, color)
+            this.side = side;
+        }
+        // Square.prototype = Object.Create(Shape.prototype);
+        // Square.prototype.constructor = Square;
+        inherit(Square, Shape);
+        Square.prototype.draw = function() {
+            console.log("draw square");
+        }
+
+
+
+        const c1 = new Circle(10, "yellow");
+        const s1 = new Square(100);
+
+        //c1 => Circle Prototype => Object Prototype
+
+        //c1 => Circle Prototype => Shape Prototype => Object Prototype
+
+
+        function Rectangle(width, height, color) {
+            this.width = width;
+            this.height = height;
+            Shape.call(this, color);
+        }
+        
+        Rectangle.prototype = Object.create(Shape.prototype);
+        Rectangle.prototype.constructor = Rectangle;
+        Rectangle.prototype.rotate = function() {
+            console.log("rotate");
+        }
+        Rectangle.prototype.draw = function() {
+            Shape.prototype.draw.call(this);
+            console.log("draw rectangle");
+        }
+
+        
+        //inherit(Rectangle, Shape);
+
+        const r1 = new Rectangle(50, 40, "red");
+
+        // r1 => Rectangle Prototype (Rectangle) => Object Prototype (Object)
+        // r1 => Rectangle Prototype (Rectangle) => Shape Prototype (shape) => Object Prototype (Object)
+
+
+        // const shapes = [
+        //     new Circle(10),
+        //     new Square(20),
+        //     new Rectangle(30, 40)
+        // ];
+
+
+        // for(let item of shapes) {
+        //     item.draw();
+        // }
+    </script>
+</body>
+</html>

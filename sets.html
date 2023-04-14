@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Sets</h1>
+    <script>
+        const set1 = new Set();
+        set1.add(1);
+        set1.add(4);
+        set1.add(2);
+        set1.add(3);
+        set1.add(2);
+        set1.add(3);
+
+        set1.delete(2);
+
+        console.log(set1.has(4));
+
+        console.log(set1.size);
+
+        // for(let val of set1.values())
+        //     console.log(val);
+        
+
+        set1.forEach(val => console.log(val));
+
+        const set2 = new Set();
+        let user1 = {name: "ganesh"};
+        set2.add(user1);
+        
+        let user2 = {name: "siva"};
+        set2.add(user2);
+        
+        let user3 = {name: "lakshmi"};
+        set2.add(user3);
+
+
+        user1 = null;
+
+    </script>
+</body>
+</html>

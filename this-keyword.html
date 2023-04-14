@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const car = {
+            name: 'benz'
+        };
+
+        function display(msg1, msg2) {
+            console.log(this, msg1, msg2);
+        }        
+        // display();
+        // window.display();
+        // call, apply, bind
+        // call, apply - changes this object and executes the function
+
+        // display.call({}, "hi")
+        // display.call(car, "hi", "hello");
+        // display.call(null, "hi");
+
+        // display.apply(car, ['hi', 'hello']);
+
+        // returns new function where this is set to the given object and then call the funtion manually
+        // const result = display.bind(car, "hi", "hello");
+        // result();
+
+        const person = {
+            name: "ganesh",
+            age: 30,
+            skills: ["html", "css", "js"],
+            displayDetails() {
+                // this refers to window
+                // this.skills.forEach(function(item){
+                //     console.log(item, this);
+                // });
+                
+                // using self
+                // const self = this;
+                // this.skills.forEach(function(item){
+                //     console.log(item, self);
+                // });
+
+
+                // setting person as this
+                // named function
+                // this.skills.forEach(iterateArray, person);
+                // anonymous function
+                // this.skills.forEach(function(item){
+                //     console.log(item, this);
+                // }, person);
+
+                // using bind
+                // const result = iterateArray.bind(person);
+                // this.skills.forEach(result);
+                // this.skills.forEach(iterateArray.bind(person));
+                // this.skills.forEach(function(item){
+                //     console.log("using bind", item, this);
+                // }.bind(this));
+                
+                this.skills.forEach((item) => console.log(item, this));
+            }
+
+        }
+        person.displayDetails();
+
+        function iterateArray(item) {
+            console.log(item, this);
+        }
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="callDisplay()">Display</button>
+    <script>
+        function display() {
+            // return new Promise(function(resolve, reject){
+            //     // setTimeout(function(){
+            //     //     resolve("hello");
+            //     // }, 2000)
+            //     resolve("hello");
+            // });
+
+            return Promise.resolve("hello");
+        }
+
+        async function display2() {
+            return "hello";
+        }
+
+        async function callDisplay() {
+            // const promise = display2();
+            // console.log(promise);
+            // promise.then(function(result){
+            //     console.log(result);
+            // })
+
+            try {
+                const result = await getData()
+                console.log(result)
+            } catch (error) {
+                console.log(error);
+            }
+           
+            // .then(function(result){
+            //     console.log(result);
+            // })
+            // .catch(function(error){
+            //     console.log(error);
+            // });
+        }
+        
+
+        async function getData() {
+            const promise = new Promise(function(resolve, reject){
+                window.setTimeout(function(){
+                    resolve("data")
+                    //reject("some error");
+                }, 5000)
+            })
+            // promise.then(function(result){
+            //     console.log(result);
+            // })
+            // .catch(function(error) {
+            //     console.log(error);
+            // });
+
+            // console.log("before await");
+            // try {
+            //     const result = await promise;    
+            // } catch (error) {
+            //     console.log(error);
+            // }
+
+            return await promise;
+        }
+
+
+    </script>
+</body>
+</html>

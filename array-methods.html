@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    const persons = [
+        {id: 1, name: "ganesh", age: 30},
+        {id: 2, name: "siva", age: 40},
+        {id: 3, name: "kumar", age: 50}
+    ];
+
+    function find(predicate) {
+        for(let person of persons) {
+            let isMatched = predicate(person);
+            if(isMatched)
+                return person;
+        }
+        return null;
+    }
+        
+    let result = find(searchByName);
+    console.log(result);
+
+    function searchByName(person) {
+        return (person.name === "ram");
+    }
+
+</script>
+</body>
+</html>

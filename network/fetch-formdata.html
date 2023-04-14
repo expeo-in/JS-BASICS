@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="post" id="form1" enctype="multipart/form-data" onsubmit="return submitDataUsingFormData()">
+        <div>First Name: <input type="text" name="fname" id="fname"></div>
+        <div>Last Name: <input type="text" name="lname" id="lname"></div>
+        <div>Profile Picture: <input type="file" name="file" id="file" onchange="onFileChange(this)"></div>
+        <input type="Submit">
+    </form>
+    <script>
+        // onsubmit="return submitDataUsingFormData()"
+        async function submitDataUsingGet() {
+            
+            // string concat
+            //const url =  "http://127.0.0.1:5500/network/fetch-formdata.html?fname=" + document.getElementById("fname").value + "&lname=" + document.getElementById("lname").value;
+            
+            // string interpolation
+            //const url = `http://127.0.0.1:5500/network/fetch-formdata.html?fname=${document.getElementById("fname").value}&lname=${document.getElementById("lname").value}`;
+
+
+            // URL & URLSearchParams
+            const data = {
+                fname: document.getElementById("fname").value,
+                lname: document.getElementById("lname").value
+            }
+
+            const url = new URL("http://127.0.0.1:5500/network/fetch-formdata.html");
+            url.search = new URLSearchParams(data).toString();
+            const response = await fetch(url);
+
+            return false;
+        }
+
+
+        async function submitDataUsingPost() {
+            const data = {
+                fname: document.getElementById("fname").value,
+                lname: document.getElementById("lname").value
+            }
+
+            
+            const response = await fetch("http://127.0.0.1:5500/network/fetch-formdata.html", {
+                method: "POST",
+                body: new URLSearchParams(data)
+            });
+
+            return false;
+        }
+
+        function submitDataUsingFormData() {
+
+             //const data = new FormData(document.getElementById("form1"));
+
+             const data = new FormData();
+             data.append("fname",  document.getElementById("fname").value);
+             data.append("lname",  document.getElementById("lname").value);
+             data.append("image",  document.getElementById("file").Files[0]);
+             
+
+            
+            fetch("http://127.0.0.1:5500/network/fetch-formdata.html", {
+                method: "POST",
+                body: data
+            })
+            .then(data => console.log(data));
+
+            return false;
+        }
+
+        let imageData;
+        function onFileChange(input) {
+            
+            const reader = new FileReader();
+            reader.readAsDataURL(input.files[0]);
+            
+            reader.onload = function() {
+                imageData = reader.result;
+
+                const data = {
+                    fname: document.getElementById("fname").value,
+                    lname: document.getElementById("lname").value,
+                    image: imageData
+                }
+
+                fetch("http://127.0.0.1:5500/network/fetch-formdata.html", {
+                    method: "POST",
+                    body: JSON.stringify(data),
+                    headers: {
+                    "Content-Type": "application/json; charset=UTF-8"
+                    }
+                }).then(data => console.log(data));
+            }
+        }
+
+        
+    </script>
+</body>
+</html>

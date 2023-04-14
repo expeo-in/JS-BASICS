@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="displayData()">
+    <h1>Cart List</h1>
+    <br>
+    <div>
+        <div>
+            Name: 
+            <select id="product">
+                <option>Apple</option>
+                <option>Banana</option>
+                <option>Milk</option>
+                <option>Bread</option>
+                <option>Rice</option>
+            </select>
+            Quantity: <input type="text" id="qty">
+            <input type="button" value="Add to Cart" id="b1" onclick="addToCart()">
+        </div>
+    </div>
+    <hr>
+
+    <table id="cartList">
+        <tr><th>Product</th><th>Quantity</th></tr>
+    </table>
+
+
+    
+    <script>
+        let cartItems = [];
+
+        function addToCart() {
+            const productName = document.getElementById("product").value;
+            const qty = document.getElementById("qty").value;
+
+            const item = {
+                productName,
+                qty
+            }
+
+            cartItems.push(item);
+
+            saveCart();
+
+            const newRow = `<tr><td>${productName}</td><td>${qty}</td></tr>`;
+            document.getElementById("cartList").innerHTML += newRow;
+        }
+
+        function saveCart() {
+            const data = JSON.stringify(cartItems);
+            localStorage.setItem("cart", data);
+        }
+
+        function loadCart() {
+            const data = localStorage.getItem("cart");
+            cartItems = JSON.parse(data);
+        }
+
+        function bindData() {
+            for(let item of cartItems) {
+                const newRow = `<tr><td>${item.productName}</td><td>${item.qty}</td></tr>`;
+                document.getElementById("cartList").innerHTML += newRow;
+            }
+        }
+
+        function displayData() {
+            loadCart();
+            bindData();
+        }
+    </script>
+</body>
+</html>

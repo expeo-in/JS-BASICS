@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // closures
+        const rate = 12;
+
+        function display() {
+            const name = "ganesh";
+
+            for(let i=0; i<5; i++) {
+                console.log(i, name, rate);
+            }
+        }
+        // const result = display.bind();
+        // result();
+
+        // function bind(thisArg) {
+        //     return function() {
+        //         this = thisArg;
+        //     }
+        // }
+
+        function createCar(brand) {
+            return {
+                brand: brand
+            };
+        }
+
+        // const car1 = createCar("benz");
+        // const car2 = createCar("bmw");
+
+        function makeCounter() {
+            let count = 0;
+            return function() {
+                console.log(count);
+                count++;
+            }
+        }
+
+        const counter = makeCounter();
+        
+        counter();
+        counter();
+        counter();
+        counter();
+        counter();
+    </script>
+</body>
+</html>

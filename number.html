@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="t1">
+    <script>
+        const number1 = 10; //primitive
+        const number2 = 10.5;
+        //64 bit
+
+        //const number3 = new Number(100); //object
+
+
+        let x = "100";
+        let y = true;
+        let z = x / y;
+        //console.log(z);
+
+        //NaN - not a number;
+
+        //Convert Functions
+        console.log(Number("100"));
+        console.log(Number("test"));
+        console.log(Number(true));
+        console.log(Number(false));
+        console.log(Number({}));
+        console.log(Number(""));
+        console.log(Number(" "));
+        console.log(Number(undefined));
+        console.log(Number(null));
+        console.log(Number([20, 40]));
+
+        console.clear();
+        console.log(parseInt(100.5832));
+        console.log(parseInt("50.5832"));
+        
+
+        console.log(parseFloat("100.4567"));
+        console.clear();
+        // check for number
+        console.log(isNaN("100"));
+        console.log(isNaN("test"));
+        console.log(isNaN(true));
+        console.log(isNaN(false));
+        console.log(isNaN({}));
+        console.log(isNaN(""));
+        console.log(isNaN(" "));
+        console.log(isNaN(undefined));
+        console.log(isNaN(null));
+        // console.log(isNaN([20, 40]));
+
+        let a = "100";
+        if(!isNaN(a)) {
+            //do calculation
+            console.log(a/5);
+        }
+
+        // Number Object Member
+        // Static Props
+        //Number.MAX_SAFE_INTEGER
+
+
+        // Static Methods
+        //Number.parseInt()
+
+        console.log(Number.isNaN("100"));
+
+        //Number() - tries converts value to a number, it it success it returns number value or NaN
+        //isNaN -  tries converts value to a number, it it success it returns false or returns tru
+        //Number.isNaN() checks whether the value is NaN
+        console.clear();
+        
+        //Instance methods
+        const num = 50;
+        console.log(num.toString(10));
+        console.log(num.toString(2));
+        console.log(num.toString(8));
+        console.log(num.toString(16));
+
+        console.clear();
+        const num2 = 77.6789;
+        console.log(num2.toFixed(3));
+        console.log(num2.toPrecision(4));
+        console.log(num2.toExponential(2));
+
+
+    </script>
+</body>
+</html>

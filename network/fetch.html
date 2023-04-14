@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Fetch API</h1>
+    <button onclick="loadHtml()">Load HTML</button>
+    <button onclick="loadJSON()">Load JSON</button>
+    <button onclick="loadImage()">Load Image</button>
+    <button onclick="loadPdf()">Load Pdf</button>
+    
+    <div id="divAjax">
+    </div>
+
+    <div>
+        Countries:
+        <select id="ddlCountries" style="width: 200px;" onchange="loadStates()">
+            <option>Select</option>
+        </select>
+    </div>
+
+    <ul id="countriesList"></ul>
+
+    <script>
+        async function loadHtml() {
+            // promise
+            // fetch("http://127.0.0.1:5500/network/ajax-intro.html")
+            // .then(response => response.text())
+            // .then(html => {
+            //     document.getElementById("divAjax").innerHTML = html;
+            // });
+
+
+            // async await
+            const response = await fetch("http://127.0.0.1:5500/network/ajax-intro.html");
+            if(response.ok) {
+                const html = await response.text();
+                document.getElementById("divAjax").innerHTML = html;
+            }
+        }
+
+        async function loadJSON() {
+            // fetch("http://127.0.0.1:5500/contents/countries.json")
+            // .then(response => response.json())
+            // .then(countries => {
+            //     for(let item of countries) {
+            //         document.getElementById("ddlCountries").innerHTML += `<option value="${item.name}">${item.name}</option>`;
+            //     }
+            // })
+
+
+            const response = await fetch("http://127.0.0.1:5500/contents/countries.json");
+            if(response.ok) {
+                const countries = await response.json();
+                for(let item of countries) {
+                    document.getElementById("countriesList").innerHTML += `<li>${item.name}</li>`;
+                }
+            }
+        }
+
+        async function loadImage() {
+            const response = await fetch("http://127.0.0.1:5500/contents/rose@1x.jpg");
+            if(response.ok) {
+                const blob = await response.blob();
+                const img = document.createElement("img");
+                img.src = URL.createObjectURL(blob);
+                document.body.appendChild(img);
+            }
+        }
+
+        async function loadPdf() {
+            const response = await fetch("http://127.0.0.1:5500/contents/499294182.pdf");
+            if(response.ok) {
+                const blob = await response.blob();
+                const link = document.createElement("a");
+                link.target = "_blank";
+                //link.download = true;
+                //link.innerHTML = "Open Pdf";
+                link.href = URL.createObjectURL(blob);
+                document.body.appendChild(link);
+                link.click();
+            }
+        }
+    </script>
+</body>
+</html>

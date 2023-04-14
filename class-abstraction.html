@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const mymethodname = Symbol();
+        const mymethodname2 = "print";
+        const person = {
+            name: "ganesh"
+        }
+
+        // Object.prototype.toString = function() {
+        //     console.log("tostring changed");
+        // }
+
+        //console.log(person);
+        // class Circle {
+        //     constructor(radius) {
+        //         this.radius = radius;
+        //     }
+        // }
+
+        const arr1 = [1, 2, 3];
+        const arr2 = ["a", "b", "c"];
+
+        Array.prototype[mymethodname] = function(){
+            console.log("printing array");
+        }
+
+        Array.prototype[mymethodname2] = function(){
+            console.log("printing2 array");
+        }
+
+        console.log(arr1[mymethodname]());
+        console.log(arr1[mymethodname2]());
+
+        const _salary = Symbol();
+        const _displayMethodName  = Symbol();
+
+        class Employee {
+
+            constructor(name, hoursWorked) {
+                let paramName = "age"
+                let methodName = Symbol();
+                this.hoursWorked = hoursWorked;
+                this["name"] = name;
+                //this.age = 10;
+                //this["age"] = 10;
+                this[paramName] = 10;
+                this[_salary] = 0;
+                this[_displayMethodName] = () => {console.log("display")};
+            }
+
+            get salary() {
+                return this[_salary];
+            }
+
+            calculateSalary() {
+                this[_salary] = this.hoursWorked * 100;
+            }
+
+            toString() {
+                this[_displayMethodName]();
+            }
+        }
+
+        const e1 = new Employee("ganesh", 20);
+        e1.calculateSalary();
+        console.log(e1.salary)
+        e1.salary = 10000;
+        console.log(e1);
+    </script>
+</body>
+</html>

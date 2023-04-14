@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="script1.js"></script>
+    <script src="script2.js"></script>
+</head>
+<body>
+    <script>
+        /* Function Declaration */
+        // function walk() {
+        //     console.log("walk");
+        // }
+        // walk();
+
+        /* Function Expression */
+        // const x = 10;
+        // const run = function() {
+        //     console.log("run");
+        // };
+        // run();
+
+        // /* Arguments */
+        // function add(x, y) {
+        //     console.log(x, y);
+        //     return x + y;
+        // }
+        // add();
+
+
+        // // Infinite Parameters
+        // function add() {
+        //     console.log("arguments", arguments);
+        //     let total = 0;
+        //     // for(let i=0; i<arguments.length; i++) {
+        //     //     total += arguments[i];
+        //     // }
+        //     for(let value of arguments)
+        //         total += value;
+        //     return total;
+        // }
+        // console.log(add(1, 2, 3, 4, 5));
+
+        // // rest of the parameters
+        // function addEx(x, y, ...params) {
+
+        //     console.log("params", params);
+        //     let total = x + y;
+        //     for(let value of params)
+        //         total += value;
+        //     return total;
+        // }
+        // // addEx(1, 2);
+        // // addEx(1, 2, 3, 4)
+
+
+        // Default Parameter
+        // function calculateInterest(principal, years = 5, rate = 7) {
+        //     // if(!rate) rate = 10;
+
+        //     // if(typeof rate == "undefined")
+        //     //     rate = 10;
+                
+        //     //rate = rate || 10;
+        //     return principal * (rate / 100) * years;
+        // }
+        // const interest = calculateInterest(10000);
+        // //const interest = calculateInterest(10000, 2);
+        // //const interest = calculateInterest(10000);
+        // calculateInterest()
+        // console.log(interest);
+
+
+        // Getter and Setter
+        // const person = {
+        //     firstName: "ganesh",
+        //     lastName: "kumar",
+        //     // fullName() {
+        //     //     return this.firstName + " " + this.lastName;
+        //     // }
+        //     get fullName() {
+        //         return this.firstName + " " + this.lastName;
+        //     },
+        //     set fullName(value) {
+        //         const names = value.split(" ");
+        //         this.firstName = names[0];
+        //         this.lastName = names[1];
+        //     },
+        //     work: function() {
+        //         console.log("working");
+        //     }
+        // };
+        // //person.work();
+        // // method syntax
+        // // console.log(person.fullName());
+
+        // // getter and setter
+        // console.log(person.fullName); //get
+        // person.fullName = "Siva Kumar"; //set
+        // console.log(person);
+
+        // Error Handling
+        // function getWords(sentence) {
+        //     if(!sentence)
+        //         throw "invalid data";
+            
+        //     if(typeof sentence !== "string")
+        //         throw new Error("not a string");
+            
+        //     const words = sentence.split(" ");
+        //     return words;
+        // }
+        
+        
+        // try{
+        //     let result = getWords(5);
+        //     console.log("result", result);
+        // }
+        // catch(err) {
+        //     console.log(err);
+        //     alert(err);
+        // }
+        // finally {
+        //     console.log("finally")
+        // }
+
+        // Variable declaration - var, let, const
+
+        
+        // Scopes - block, function, global
+        // block level variable or block level scope
+        // let const will have block scope if declared in block
+        // var will have either function or global scope
+
+        // let const var will have function scope if declared in function and can be accessed anywhere in the function
+        let x = 10; //1000
+        const y = 20;
+        var z = 30;
+
+        function display(a) {
+            let x = 10;
+            let flag = true;
+
+            console.log(x);
+            console.log(y);
+            console.log(z);
+        }
+
+
+        // display();
+
+        console.log("inside html");
+        console.log(name);
+        console.log(age);
+        console.log(weight);
+        displayProduct();
+    </script>
+</body>
+</html>

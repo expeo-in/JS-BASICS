@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // const promise = new Promise(function(resolve, reject){
+        //     //producing
+
+        //     setTimeout(function(){
+        //         resolve("content generated");
+        //         //reject("content not generated");
+        //     }, 5000)
+            
+        // })
+
+        // promise.then(function(data){
+        //     console.log("sucess 1", data);
+        // }, function(error){
+        //     console.log("error 1", error);
+        // })
+
+        // promise
+        // .finally(function(){
+        //     //code cleanup
+        //     console.log("finally");
+        // })
+        // .then(function(data){
+        //     console.log("success");
+        // })
+        // .catch(function(error){
+
+        // })
+
+        /*
+        promise.then(function(data){
+            console.log("sucess 2", data);
+        }, function(error){
+            console.log("error 2", error);
+        })
+
+        */
+
+        function loadScript(url) {
+            return new Promise(function(resolve, reject){
+                const script = document.createElement("script");
+                script.src = url;
+                document.body.appendChild(script);
+                console.log("script added to body");
+
+                script.onload = function() {
+                    resolve(url + " script loaded");
+                }
+                script.onerror = function() {
+                    reject(url + " script not loaded");
+                }
+            });
+        }
+
+        /* parallel*/
+
+        // loadScript("/scripts/math.js")
+        // .then(function() {
+        //     console.log(add(1, 5));
+        // })
+
+        // loadScript("https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js")
+        // .then(function() {
+        //     console.log(moment().format('MMMM Do YYYY, h:mm:ss a'));
+        // })
+
+        /*
+        //sequentially
+
+        loadScript("/scripts/math.js")
+        .then(() => loadScript("https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"))
+        .then(() => {
+            console.log(moment().format('MMMM Do YYYY, h:mm:ss a'));
+            console.log(add(1, 5));
+        });
+
+
+        //promise chaning
+        const promise1 = new Promise(function(resolve, reject) {
+            resolve(1);
+        })
+        .then(num => num * 2)
+        .then(num => num * 5)
+        .then(num => console.log(num));
+        */
+
+        /* Promise.all */
+        let promises = [];
+        promises.push(loadScript("/scripts/math.js"));
+        promises.push(loadScript("https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"));
+
+        Promise.all(promises).then(function(result){
+            console.log(result[0]);
+            console.log(result[1]);
+            console.log(moment().format('MMMM Do YYYY, h:mm:ss a'));
+            console.log(add(1, 5));
+        })
+
+        /* Promise.any */
+        // let promises = [];
+        // promises.push(loadScript("https://cdnjs.cloudflare3.com/ajax/libs/moment.js/2.29.4/moment.min.js"));
+        // promises.push(loadScript("https://cdn.jsdelivr.net/npm/moment@2.29.4/moment.min.js"));
+
+        // Promise.any(promises).then(function(result){
+        //     console.log(result);
+        //     console.log(moment().format('MMMM Do YYYY, h:mm:ss a'));
+        // });
+    </script>
+</body>
+</html>

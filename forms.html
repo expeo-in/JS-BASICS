@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .msg-error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Signup Form</h1>
+    <form onsubmit="return validateForm()" action="">
+        <div>Username: <input type="text" name="username" id="username"><span id="usernameMsg" class="msg-error"></span></div>
+        <div>Password: <input type="password" name="Password" id="password" onblur="checkPassword()" oninput="checkPassword()"><span id="passwordMsg" class="msg-error"></span></div>
+        <div>Country: <select onchange="alert(this.value)"><option>US</option><option>India</option></select></div>
+        <input type="submit">
+        <input type="button" value="Cancel">
+        <button type="button" onclick="submitForm()">Normal Button</button>
+        <button type="submit">Submit Button</button>
+        <input type="image" src="" alt="Image Button">
+        <input type="reset">
+    </form>
+    <script>
+        function validateForm() {
+            const username = document.getElementById("username");
+            document.getElementById("usernameMsg").innerText = "";
+            document.getElementById("passwordMsg").innerText = "";
+            let isValid = true;
+
+
+            if(username.value == "") {
+                //alert("Enter username");
+                document.getElementById("usernameMsg").innerText = "Enter username"
+                username.focus();
+                isValid = false;
+            }
+
+            const password = document.getElementById("password");
+            if(password.value == "") {
+                // alert("Enter password");
+                document.getElementById("passwordMsg").innerText = "Enter password"
+                password.focus();
+                isValid = false;
+            }
+
+            return isValid;
+        }
+
+        function checkPassword() {
+            const password = document.getElementById("password");
+            document.getElementById("passwordMsg").innerText = "";
+
+            if(password.value.length < 8) {
+                document.getElementById("passwordMsg").innerText = "Password should be min 8 chars"
+                //password.focus();
+            }
+            const pattern = /[0-9]/;
+            if(!pattern.test(password.value))
+            {
+                document.getElementById("passwordMsg").innerText += " Password should contain numbers";
+            }
+        }
+
+        function submitForm() {
+            if(validateForm())
+                document.forms[0].submit();
+        }
+    </script>
+</body>
+</html>

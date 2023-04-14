@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Todo List</h1>
+    <div>
+        <input type="button" value="Add" id="b1" onclick="addToDo()">
+    </div>
+
+    <form>
+        <ul id="todoList">
+        </ul>
+        <input type="submit">
+    </form>
+
+    <script>
+        let index = 0
+        function addToDo() {
+            const todoList = document.getElementById("todoList");
+            const todoListItem = document.createElement("li");
+            todoListItem.innerHTML = `<input type="text" name='todo${index}'>`;
+            todoList.appendChild(todoListItem);
+            index++;
+        }
+        addToDo();
+    </script>
+</body>
+</html>

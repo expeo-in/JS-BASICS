@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Todo List</h1>
+    <div>
+        <div>
+            To: <input type="text" id="t1">
+            <input type="button" value="Add" id="b1" onclick="addToDo()">
+            <input type="button" value="Update" id="b2" onclick="updateToDo()" style="display:none">
+        </div>
+    </div>
+
+    <ul id="todoList">
+    </ul>
+
+    <script>
+        let editedItem;
+
+        function addToDo() {
+            const t1 = document.getElementById("t1");
+            if(t1.value === "")
+                return;
+
+            const todo = t1.value;
+            
+            const todoList = document.getElementById("todoList");
+            // const todoListItem = document.createElement("li");
+            // todoListItem.innerHTML = todo + "<button onclick='deleteToDo(this)'>Delete</button>";
+            // todoList.appendChild(todoListItem);
+
+            todoList.innerHTML = `<li>${todo} <button onclick='editToDo(this)'>Edit</button><button onclick='deleteToDo(this)'>Delete</button></li>`+ todoList.innerHTML;
+
+            t1.value = "";
+            t1.focus();
+        }
+
+        function updateToDo() {
+            const t1 = document.getElementById("t1");
+            if(t1.value === "")
+                return;
+
+            const todo = t1.value;
+
+            editedItem.childNodes[0].nodeValue = todo;
+            editedItem  = null;
+            t1.value = "";
+            t1.focus();
+
+            document.getElementById("b1").style.display = "inline-block";
+            document.getElementById("b2").style.display = "none";
+        }
+
+        function deleteToDo(btn) {
+            if(window.confirm("Do you want to delete the todo?")) {
+                const todoList = document.getElementById("todoList");
+                btn.parentNode.remove();
+                //todoList.removeChild(btn.parentNode);
+            }
+        }
+
+        function editToDo(btn) {
+            editedItem = btn.parentNode;
+            //const toDo = btn.parentNode.childNodes[0].nodeValue;
+            const toDo = btn.previousSibling.nodeValue;
+            document.getElementById("t1").value = toDo;
+            document.getElementById("b2").style.display = "inline-block";
+            document.getElementById("b1").style.display = "none";
+        }
+
+        function sortToDo() {
+            todos.sort();
+            document.getElementById("todoList").innerHTML = "";
+            for(let item of todos) {
+                todoList.innerHTML = `<li>${item} <button onclick='editToDo(this)'>Edit</button><button onclick='deleteToDo(this)'>Delete</button></li>`+ todoList.innerHTML;
+            }
+        }
+
+        
+    </script>
+</body>
+</html>

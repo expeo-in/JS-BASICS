@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Function Programming
+        // let firstName = "ganesh";
+        // let lastName = "kumar";
+        // let baseSalary = 300;
+        // let overtimeRate = 10;
+
+        // function getSalary(baseSalary, overtimeRate, overtimeHours) {
+        //     return baseSalary + (overtimeRate * overtimeHours);
+        // }
+
+        // let salary = getSalary(baseSalary, overtimeRate, 20);
+        // console.log(salary);
+
+        // OOP
+        // Encapsulation
+        const person = {
+            firstName: "ganesh",
+            lastName: "kumar",
+            get FullName() {
+
+            },
+            set FullName(value) {
+
+            },
+            // getFullName() {
+            //     return this.firstName + " " + this.lastName;
+            // },
+            // setFullName(value) {
+
+            // },
+            getSalary() {
+
+            }
+        }
+        console.log(person.firstName)
+        person.firstName = "siva";
+
+        console.log(person.FullName);
+        person.FullName = "siva kumar"
+        
+        // person.getFullName();
+        // person.setFullName("siva kumar");
+        
+        person.getSalary();
+
+        //public prop
+        //privae prop
+        //public methods
+        //private methods
+       
+        function Person(firstName, lastName) {
+            // public properties
+            this.firstName = firstName;
+            this.lastName = lastName;
+            
+            // private properties
+            let baseSalary = 300;
+            let overtimeRate = 10;
+            let overtimeHours = 20;
+            let overtimeAmount =  0;
+            let taxes = 30;
+            let bonusValue = 30;
+
+            Object.defineProperty(this, "FullName", {
+                get: function() {
+                    return this.firstName + " " + this.lastName;
+                },
+                set: function() {
+
+                }
+            });
+
+            Object.defineProperty(this, "bonus", {
+                get: function() {
+                    return bonusValue
+                },
+            });
+            
+            // public method
+            this.getSalary = function() {
+                calculateOverTimeAmount();
+                return baseSalary + overtimeAmount - taxes;
+            };
+
+            // private method
+            let calculateOverTimeAmount = function() {
+                overtimeAmount = (overtimeRate * overtimeHours);
+            };
+            let calculateTaxes = function() {
+                taxes = 300;
+            }
+        }
+
+        const person1 = new Person("ganesh", "kumar");
+        person1.bonus = 40;
+        console.log("bonus", person1.bonus);
+        
+        console.log("salary", person1.getSalary());
+        const person2 = new Person("siva", "kumar");
+    </script>
+</body>
+</html>
